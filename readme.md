@@ -3,7 +3,8 @@
 ## day 01 启动页面搭建 （2020年 4月 7日）
 
 ### react-native-swiper 的使用
-> 在 welcomepage.js 中使用
+> 在 welcomepage.js 中使用 Swiper 组件
+
 [详细参考文件](https://github.com/leecade/react-native-swiper)
 
 ### 动画的使用
