@@ -1,6 +1,6 @@
 # React Native -- Moji app
 
-## day 01 启动页面搭建 （2020 4月 7日）
+## day 01 启动页面搭建 （2020年 4月 7日）
 
 ### react-native-swiper 的使用
 > 在 welcomepage.js 中使用
