@@ -12,9 +12,9 @@ import {
 import Swiper from 'react-native-swiper';
 
 //android 使用 LayoutAnimation 的动画设置
-// const { UIManager } = NativeModules;
-// UIManager.setLayoutAnimationEnabledExperimental &&
-//     UIManager.setLayoutAnimationEnabledExperimental(true);
+const { UIManager } = NativeModules;
+UIManager.setLayoutAnimationEnabledExperimental &&
+    UIManager.setLayoutAnimationEnabledExperimental(true);
 
 export default class WelcomePage extends Component {
 
@@ -40,33 +40,45 @@ export default class WelcomePage extends Component {
                                 marginBottom: '25%'
                             },
                             android: {
-                                marginBottom: '10%'
+                                marginBottom: '7%'
                             }
                         })
                     }}
                     loop={false} //是否循环滑动
                 >
                     <View style={styles.slide1}>
+                        <Image
+                            source={require('../common/images/moji.png')}
+                            style={styles.logoImage}
+                        />
                         <Text style={[styles.text, { color: 'grey' }]}>Easy to record</Text>
                         <Image
                             source={require('../common/images/welcome1.png')}
-                            style={{ width: 250, height: 250, marginTop: 50 }}
+                            style={{ width: 270, height: 250, marginTop: '20%' }}
                         />
                     </View>
 
                     <View style={styles.slide2}>
+                        <Image
+                            source={require('../common/images/moji.png')}
+                            style={styles.logoImage}
+                        />
                         <Text style={[styles.text, { color: 'grey' }]}>Multiple files</Text>
                         <Image
                             source={require('../common/images/welcome2.png')}
-                            style={{ width: 250, height: 250, marginTop: 50 }}
+                            style={{ width: 260, height: 250, marginTop: '20%' }}
                         />
                     </View>
 
                     <View style={styles.slide3}>
+                        <Image
+                            source={require('../common/images/moji.png')}
+                            style={styles.logoImage}
+                        />
                         <Text style={[styles.text, { color: 'grey' }]}>Easy to share</Text>
                         <Image
                             source={require('../common/images/welcome3.png')}
-                            style={{ width: 250, height: 250, marginTop: 50 }}
+                            style={{ width: 270, height: 250, marginTop: '20%' }}
                         />
                         <TouchableOpacity
                             style={styles.getStartButton}
@@ -112,35 +124,38 @@ const styles = StyleSheet.create({
     },
     slide1: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: 'white',
     },
     slide2: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: 'white',
     },
     slide3: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: 'white',
-        ...Platform.select({
-            ios: {
-                paddingTop: 90
-            },
-            android: {
-                paddingTop: 50
-            }
-        })
+        backgroundColor: 'white'
     },
     text: {
         color: '#fff',
         fontSize: 30,
         fontWeight: 'bold',
-        marginTop: -50
+    },
+    logoImage: {
+        width: 150,
+        height: 100,
+        ...Platform.select({
+            ios: {
+                marginTop: '30%',
+            },
+            android: {
+                marginTop: '20%',
+            }
+        })
     },
     message: {
         width: '100%',
@@ -150,7 +165,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     messageText: {
-        fontSize: 12,
+        fontSize: 11,
         color: '#8c8c8c'
     }
 });

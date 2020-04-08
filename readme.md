@@ -11,3 +11,6 @@
 > 在 welcomepage.js 中使用 LayoutAnimation
 
 [详细参考文章](https://www.jianshu.com/p/c7151be8d87f)
+
+## day 02 主页面框架搭建 （2020年 4月 8日）
+
