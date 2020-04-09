@@ -24,7 +24,7 @@ class Empty extends Component { render() { return (null) } }
 
 const Tab = createBottomTabNavigator();
 
-function BottomTabs(tcolor) {
+function MyTabs(tcolor) {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
@@ -132,8 +132,7 @@ export default class App extends Component {
     return (
       <>
         <NavigationContainer style={styles.container}>
-          {BottomTabs(this.state.themeColor)}
-
+          {MyTabs(this.state.themeColor)}
           <View style={styles.functionBtn}>
             <TouchableOpacity
               disabled={this.state.isDisabledBtn}

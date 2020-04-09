@@ -54,7 +54,7 @@ export default class NewestPage extends Component {
             <>
                 <View style={{ flexDirection: 'row', marginRight: 20 }}>
                     <TouchableOpacity
-                        style={{ marginRight: 15 }}
+                        style={{ marginRight: 20 }}
                         onPress={() => { this.toggleTopBarList() }}>
                         <View style={{}}>
                             <SimpleLineIcons
