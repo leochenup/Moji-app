@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native'
 import NavigationTopBar from '../common/components/NavigationTopBar'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default class MessagePage extends Component {
+export default class PhotoPage extends Component {
 
     _getTopBarLeftBtn = () => {
         let { navigation } = this.props
@@ -14,7 +14,7 @@ export default class MessagePage extends Component {
                 }}
             >
                 <MaterialCommunityIcons
-                  name={Platform.OS === 'ios' ? 'chevron-left': 'chevron-down'}
+                    name={Platform.OS === 'ios' ? 'chevron-left': 'chevron-down'}
                     size={26}
                     style={{ marginLeft: 20 }}
                 />
@@ -30,7 +30,7 @@ export default class MessagePage extends Component {
         }
         const TopBar = (
             <NavigationTopBar
-                title='消息中心'
+                title='照相'
                 style={styles.topBar}
                 statusBar={statusBar}
                 leftButton={this._getTopBarLeftBtn()}

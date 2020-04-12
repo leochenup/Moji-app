@@ -51,14 +51,17 @@ export default class FilesPage extends Component {
   ]
 
   _getTopBarLeftBtn = () => {
+    let { navigation } = this.props
     return (
       <TouchableOpacity
         style={{}}
-        onPress={() => { }}>
+        onPress={() => {
+          navigation.navigate('PhotoPage')
+        }}>
         <View style={{ marginLeft: 20 }}>
           <SimpleLineIcons
             name={'camera'}
-            size={20}
+            size={24}
             color={'black'}
           />
         </View>
@@ -82,11 +85,11 @@ export default class FilesPage extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={{}}
-            onPress={() => { }}>
+            onPress={() => { this.toggleSoundRecordingPage() }}>
             <View style={{}}>
               <SimpleLineIcons
                 name={'microphone'}
-                size={20}
+                size={21}
                 color={'black'}
               />
             </View>
@@ -123,6 +126,13 @@ export default class FilesPage extends Component {
     }
   }
 
+  /**
+     * 切换录音页面
+     */
+  toggleSoundRecordingPage = () => {
+    const { navigation } = this.props
+    navigation.navigate('SoundRecordingPage')
+  }
   render() {
     const statusBar = {
       barStyle: 'dark-content',

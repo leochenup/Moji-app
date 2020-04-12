@@ -22,18 +22,22 @@ export default class TopBarList extends Component {
         const { isShowMask } = this.state
         return (
             <>
-                <View style={[styles.listContainer, { ...style }]}>
+                <View style={[styles.listContainer, { ...style, zIndex: 2 }]}>
                     {TopListData.map((value, index, arry) => {
-                        return <TopBarListItem item={value} length={arry.length} index={index} />
+                        return <TopBarListItem key={'tab' + index} item={value} length={arry.length} index={index} />
                     })}
                 </View>
 
                 {isShowMask
-                    ? <TouchableOpacity
-                        style={{ flex: 1, zIndex: -1 }}
-                        onPress={() => {
-                            onCloseTopBarList()
-                        }} ></TouchableOpacity>
+                    ? (
+                        <View style={{ width: '100%', height: "100%", backgroundColor: 'transparent', position: 'absolute', zIndex: 1 }}>
+                            <TouchableOpacity
+                                style={{ width: '100%', height: '100%' }}
+                                onPress={() => {
+                                    onCloseTopBarList()
+                                }} ></TouchableOpacity>
+                        </View>
+                    )
                     : null}
 
             </>

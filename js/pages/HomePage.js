@@ -10,7 +10,6 @@ import {
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import WelcomePage from './WelcomePage'
@@ -96,7 +95,7 @@ export default class HomePage extends Component {
 
     state = {
         themeColor: '#1E90FF',
-        fucPageOffset: 100,
+        fucPageOffset: -100,
         isShowFucPage: false, //是否展示功能页面
         isDisabledBtn: false// 功能键能否使用，用于防止多次快速点击
     }
@@ -107,11 +106,10 @@ export default class HomePage extends Component {
     onOpenFucPage = () => {
         if (!this.state.isDisabledBtn) {
             LayoutAnimation.easeInEaseOut()
-            console.log(this.state.isShowFucPage)
             this.setState({
                 isDisabledBtn: !this.state.isDisabledBtn,
                 isShowFucPage: !this.state.isShowFucPage,
-                fucPageOffset: this.state.fucPageOffset - 100
+                fucPageOffset: this.state.fucPageOffset + 100
             })
         }
     }
@@ -122,7 +120,7 @@ export default class HomePage extends Component {
         LayoutAnimation.easeInEaseOut()
         this.setState({
             isDisabledBtn: !this.state.isDisabledBtn,
-            fucPageOffset: this.state.fucPageOffset + 100
+            fucPageOffset: this.state.fucPageOffset - 100
         })
         setTimeout(() => {
             this.setState({ isShowFucPage: !this.state.isShowFucPage, })
@@ -132,7 +130,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <>
-                <NavigationContainer style={styles.container}>
+                <View style={styles.container}>
                     {BottomTabs(this.state.themeColor)}
 
                     <View style={styles.functionBtn}>
@@ -149,7 +147,7 @@ export default class HomePage extends Component {
                         ? <FunctionPage fncConStyle={{ ...styles.fncConStyle, bottom: this.state.fucPageOffset + '%' }} onClose={this.onCloseFucPage} />
                         : null}
 
-                </NavigationContainer>
+                </View>
                 <WelcomePage />
             </>
         );
@@ -160,9 +158,9 @@ export default class HomePage extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center'
+        // backgroundColor: 'white',
+        // justifyContent: 'center',
+        // alignItems: 'center'
     },
     text: {
         color: 'black',

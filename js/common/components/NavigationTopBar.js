@@ -7,7 +7,7 @@ const NAV_BAR_HEIGHT_ANDROID = 44 // android 导航栏高度
 const STATUS_BAR_HEIGHT = 44 // 状态栏高度
 
 const StatusBarShape = { //设置状态栏所接受属性
-    barStyle: PropTypes.oneOf(['light-content', 'default']),
+    barStyle: PropTypes.oneOf(['light-content', 'default', 'dark-content']),
     hidden: PropTypes.bool,
     backgroundColor: PropTypes.string
 }
@@ -79,7 +79,7 @@ export default class NavigationTopBar extends Component {
 const styles = StyleSheet.create({
     container: {
         // backgroundColor: '#1E90FF'
-       
+
     },
     navBar: {
         flexDirection: 'row',
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     },
     navBarButton: {
         alignItems: "center",
+        justifyContent: 'center'
     },
     navBarTitleContainer: {
         alignItems: 'center',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, LayoutAnimation } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, LayoutAnimation, } from 'react-native'
 import NavigationTopBar from '../common/components/NavigationTopBar'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 
@@ -35,14 +35,17 @@ export default class NewestPage extends Component {
     ]
 
     _getTopBarLeftBtn = () => {
+        let { navigation } = this.props
         return (
             <TouchableOpacity
                 style={{}}
-                onPress={() => { }}>
+                onPress={() => {
+                    navigation.navigate('PhotoPage')
+                }}>
                 <View style={{ marginLeft: 20 }}>
                     <SimpleLineIcons
                         name={'camera'}
-                        size={20}
+                        size={24}
                         color={'black'}
                     />
                 </View>
@@ -66,11 +69,11 @@ export default class NewestPage extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{}}
-                        onPress={() => { }}>
+                        onPress={() => { this.toggleSoundRecordingPage() }}>
                         <View style={{}}>
                             <SimpleLineIcons
                                 name={'microphone'}
-                                size={20}
+                                size={21}
                                 color={'black'}
                             />
                         </View>
@@ -105,6 +108,14 @@ export default class NewestPage extends Component {
         })
     }
 
+    /**
+     * 切换录音页面
+     */
+    toggleSoundRecordingPage = () => {
+        const { navigation } = this.props
+        navigation.navigate('SoundRecordingPage')
+    }
+
     render() {
         const statusBar = {
             barStyle: 'dark-content',
@@ -124,6 +135,13 @@ export default class NewestPage extends Component {
             <View style={styles.container}>
                 {TopBar}
                 <TopBarList style={{ right: this.state.TopBarListOffest }} onCloseTopBarList={this.onCloseTopBarList} TopListData={this.TopListData} />
+
+                <View style={{ flex: 1,/* borderWidth: 1,*/ justifyContent: 'center', alignItems: 'center' }}
+                >
+                    <TouchableOpacity>
+                        <Text>最新</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -141,8 +159,8 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     topBar: {
-        width: '100%', 
-        backgroundColor: 'rgba(241,241,241,1)', 
+        width: '100%',
+        backgroundColor: 'rgba(241,241,241,1)',
         shadowColor: 'gray',//iOS 设置阴影
         shadowOffset: { width: 0.5, height: 0.5 },
         shadowOpacity: 0.4,
